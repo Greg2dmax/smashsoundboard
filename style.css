@@ -1,6 +1,6 @@
 html {
     font-size: 10px;
-    background: url(https://i.kym-cdn.com/photos/images/original/000/853/228/a55.png) bottom center;
+    background: url(https://i.ytimg.com/vi/xyJA1XTMisY/maxresdefault.jpg) bottom center;
     background-size: cover;
   }
   
@@ -34,8 +34,8 @@ html {
   
   .playing {
     transform: scale(1.2);
-    border-color: #ffc600;
-    box-shadow: 0 0 1rem #ffc600;
+    border-color: #0000;
+    box-shadow: 0 0 1rem #fcf801;
   }
   
   kbd {
@@ -47,5 +47,5 @@ html {
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: .1rem;
-    color: #ffc600;
+    color: rgb(250, 245, 245);
   }
