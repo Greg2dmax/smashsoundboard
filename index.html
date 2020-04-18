@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js drums</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="keys">
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="sound">Daisy</span>
+        </div>
+
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+            <span class="sound">Falcon</span>
+        </div>
+
+        <div data-key="75" class="key">
+            <kbd>K</kbd>
+            <span class="sound">Kirby</span>
+        </div>
+
+        <div data-key="76" class="key">
+            <kbd>L</kbd>
+            <span class="sound">Luigi</span>
+        </div>
+
+        <div data-key="77" class="key">
+            <kbd>M</kbd>
+            <span class="sound">Mario</span>
+        </div>
+
+        <div data-key="80" class="key">
+            <kbd>P</kbd>
+            <span class="sound">Pikachu</span>
+        </div>
+
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="sound">Snake</span>
+        </div>
+
+        <div data-key="87" class="key">
+            <kbd>W</kbd>
+            <span class="sound">Wolf</span>
+        </div>
+
+        <div data-key="89" class="key">
+            <kbd>Y</kbd>
+            <span class="sound">Yoshi</span>
+        </div>
+    </div>
+
+    <audio data-key="68" src="sounds/daisy.wav"></audio>
+    <audio data-key="70" src="sounds/falcon.wav"></audio>
+    <audio data-key="75" src="sounds/kirby.wav"></audio>
+    <audio data-key="76" src="sounds/luigi.wav"></audio>
+    <audio data-key="77" src="sounds/mario.wav"></audio>
+    <audio data-key="80" src="sounds/pikachu.wav"></audio>
+    <audio data-key="83" src="sounds/snake.wav"></audio>
+    <audio data-key="87" src="sounds/wolf.wav"></audio>
+    <audio data-key="89" src="sounds/yoshi.wav"></audio>
+
+    <script>
+
+           function playSound(e){
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+            if(!audio) return; // stop the function from running
+            audio.currentTime = 0; // reward to the beginning
+             audio.play()
+            key.classList.add('playing');
+        }
+
+        function  removeTransition(e) {
+            if (e.propertyName !== 'transform') return; // skip if its not a transform
+            this.classList.remove('playing')
+        }
+
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+        window.addEventListener('keydown', playSound);
+    </script>
+
+
+
+</body>
+</html>
